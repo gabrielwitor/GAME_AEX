@@ -1,11 +1,14 @@
 extends CanvasLayer
 
 signal next_level_requested
+signal restart_requested
 
 @onready var background: ColorRect = $Background
 @onready var panel: NinePatchRect = $CenterContainer/NinePatchRect
+@onready var congrat_label: Label = $CenterContainer/NinePatchRect/VBoxContainer/CongratLabel
 @onready var target_image: TextureRect = $CenterContainer/NinePatchRect/VBoxContainer/TargetImage
 @onready var btn_next: TextureButton = $CenterContainer/NinePatchRect/VBoxContainer/ButtonsVBox/BtnNextLevel
+@onready var btn_next_label: Label = $CenterContainer/NinePatchRect/VBoxContainer/ButtonsVBox/BtnNextLevel/Label
 @onready var btn_menu: TextureButton = $CenterContainer/NinePatchRect/VBoxContainer/ButtonsVBox/BtnMenu
 
 var audio_player = AudioStreamPlayer.new()
@@ -27,10 +30,26 @@ func _ready() -> void:
 	btn_next.pressed.connect(_on_btn_next_pressed)
 	btn_menu.pressed.connect(_on_btn_menu_pressed)
 
-func show_victory(image_path: String) -> void:
+func show_victory(image_path: String, is_final: bool = false) -> void:
 	var tex = load(image_path)
 	if tex:
 		target_image.texture = tex
+	
+	# Configura estado específico do fim de jogo
+	congrat_label.visible = is_final
+	if is_final:
+		btn_next_label.text = "JOGAR NOVAMENTE"
+		# Reconecta o botão para reiniciar em vez de avançar
+		if btn_next.pressed.is_connected(_on_btn_next_pressed):
+			btn_next.pressed.disconnect(_on_btn_next_pressed)
+		if not btn_next.pressed.is_connected(_on_btn_restart_pressed):
+			btn_next.pressed.connect(_on_btn_restart_pressed)
+	else:
+		btn_next_label.text = "PROXIMO NIVEL"
+		if btn_next.pressed.is_connected(_on_btn_restart_pressed):
+			btn_next.pressed.disconnect(_on_btn_restart_pressed)
+		if not btn_next.pressed.is_connected(_on_btn_next_pressed):
+			btn_next.pressed.connect(_on_btn_next_pressed)
 	
 	# Reseta o fundo e esconde o painel antes de mostrar
 	background.color = Color(0, 0, 0, 0)
@@ -55,6 +74,11 @@ func _on_btn_next_pressed() -> void:
 	await get_tree().create_timer(0.15).timeout
 	hide()
 	next_level_requested.emit()
+
+func _on_btn_restart_pressed() -> void:
+	await get_tree().create_timer(0.15).timeout
+	hide()
+	restart_requested.emit()
 
 func _on_btn_menu_pressed() -> void:
 	# Pausa para o som tocar antes de mudar de cena
