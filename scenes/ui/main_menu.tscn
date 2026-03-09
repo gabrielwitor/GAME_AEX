@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://dsj7oci0scce8"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_ab3cd"]
+[ext_resource type="Texture2D" path="res://assets/graphics/background.jpg" id="2_bg"]
+[ext_resource type="FontFile" path="res://assets/fonts/Kenney Future.ttf" id="3_font"]
+[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
+[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_grey.svg" id="5_p"]
+[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="6_qn"]
+[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="7_qp"]
+[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/banner_classic_curtain.svg" id="8_banner"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ab3cd")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -500.0
+offset_top = 80.0
+offset_right = 500.0
+offset_bottom = 350.0
+grow_horizontal = 2
+pivot_offset = Vector2(500, 135)
+texture = ExtResource("8_banner")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Title"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.98, 0.9, 0.7, 1)
+theme_override_colors/font_shadow_color = Color(0.2, 0.1, 0.05, 0.8)
+theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 18
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 64
+text = "O Monstrinho Faminto"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="BtnPlay" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture_normal = ExtResource("4_n")
+texture_pressed = ExtResource("4_n")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/BtnPlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 48
+text = "JOGAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnQuit" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+texture_normal = ExtResource("6_qn")
+texture_pressed = ExtResource("7_qp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/BtnQuit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.1, 0.1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 48
+text = "SAIR"
+horizontal_alignment = 1
+vertical_alignment = 1
