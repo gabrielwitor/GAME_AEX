@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 @onready var menu_panel = $MenuPanel
-@onready var volume_slider = $MenuPanel/NinePatchRect/VBoxContainer/VolumeSlider
+@onready var music_slider = $MenuPanel/NinePatchRect/VBoxContainer/MusicSlider
+@onready var voice_slider = $MenuPanel/NinePatchRect/VBoxContainer/VoiceSlider
 @onready var resume_btn = $MenuPanel/NinePatchRect/VBoxContainer/ResumeBtn
 @onready var main_menu_btn = $MenuPanel/NinePatchRect/VBoxContainer/MainMenuBtn
 @onready var quit_btn = $MenuPanel/NinePatchRect/VBoxContainer/QuitBtn
@@ -9,17 +10,20 @@ extends CanvasLayer
 var audio_player = AudioStreamPlayer.new()
 
 func _ready() -> void:
+	# Garante que os buses existem ao rodar (criados na primeira vez)
+	_ensure_bus("Music")
+	_ensure_bus("Voice")
+	
 	# Hide the menu initially
 	menu_panel.hide()
 	
-	# Try to get the Master bus volume
-	var master_bus_idx = AudioServer.get_bus_index("Master")
-	if master_bus_idx >= 0:
-		var current_volume_db = AudioServer.get_bus_volume_db(master_bus_idx)
-		volume_slider.value = db_to_linear(current_volume_db)
+	# Lê volumes atuais dos buses e sincroniza os sliders
+	music_slider.value = _get_bus_linear("Music")
+	voice_slider.value = _get_bus_linear("Voice")
 	
-	# Connect signals
-	volume_slider.value_changed.connect(_on_volume_changed)
+	# Conecta sinais
+	music_slider.value_changed.connect(_on_music_volume_changed)
+	voice_slider.value_changed.connect(_on_voice_volume_changed)
 	resume_btn.pressed.connect(_on_resume_pressed)
 	main_menu_btn.pressed.connect(_on_main_menu_pressed)
 	quit_btn.pressed.connect(_on_quit_pressed)
@@ -34,6 +38,20 @@ func _ready() -> void:
 		btn.pressed.connect(func(): _play_sfx(sfx_click))
 		
 	add_child(audio_player)
+
+func _ensure_bus(bus_name: String) -> void:
+	if AudioServer.get_bus_index(bus_name) >= 0:
+		return
+	AudioServer.add_bus()
+	var idx = AudioServer.get_bus_count() - 1
+	AudioServer.set_bus_name(idx, bus_name)
+	AudioServer.set_bus_send(idx, "Master")
+
+func _get_bus_linear(bus_name: String) -> float:
+	var idx = AudioServer.get_bus_index(bus_name)
+	if idx < 0:
+		return 1.0
+	return db_to_linear(AudioServer.get_bus_volume_db(idx))
 
 func _on_hover_enter(btn: TextureButton, sfx) -> void:
 	btn.pivot_offset = btn.size / 2
@@ -56,15 +74,19 @@ func _input(event: InputEvent) -> void:
 func _toggle_menu() -> void:
 	var menu_should_be_visible = not menu_panel.visible
 	menu_panel.visible = menu_should_be_visible
-	# Pause tree
 	get_tree().paused = menu_should_be_visible
 	if menu_should_be_visible:
 		resume_btn.grab_focus()
 
-func _on_volume_changed(value: float) -> void:
-	var master_bus_idx = AudioServer.get_bus_index("Master")
-	if master_bus_idx >= 0:
-		AudioServer.set_bus_volume_db(master_bus_idx, linear_to_db(value))
+func _on_music_volume_changed(value: float) -> void:
+	var idx = AudioServer.get_bus_index("Music")
+	if idx >= 0:
+		AudioServer.set_bus_volume_db(idx, linear_to_db(value))
+
+func _on_voice_volume_changed(value: float) -> void:
+	var idx = AudioServer.get_bus_index("Voice")
+	if idx >= 0:
+		AudioServer.set_bus_volume_db(idx, linear_to_db(value))
 
 func _on_resume_pressed() -> void:
 	_toggle_menu()

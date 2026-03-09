@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://daddy2ms5chgx"]
+
+[ext_resource type="Script" uid="uid://dd0ugynm3s8kh" path="res://scripts/ui/menu_monster.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dqaatum3igqqr" path="res://assets/graphics/characters/monster_idle.png" id="2_idle"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mouth"]
+radius = 38.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_floor"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wall_r"]
+a = Vector2(0, -600)
+b = Vector2(0, 600)
+
+[node name="MenuMonster" type="Node2D" unique_id=931924689]
+script = ExtResource("1_script")
+
+[node name="MonsterSprite" type="Sprite2D" parent="." unique_id=2112236082]
+position = Vector2(1650, 928.99994)
+scale = Vector2(0.38, 0.38)
+texture = ExtResource("2_idle")
+
+[node name="MouthArea" type="Area2D" parent="." unique_id=1709899721]
+position = Vector2(1680, 975)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouthArea" unique_id=1202174542]
+position = Vector2(-32, -53)
+shape = SubResource("CircleShape2D_mouth")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=176276835]
+position = Vector2(960, 1090)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=2026060013]
+position = Vector2(-11, -11)
+shape = SubResource("WorldBoundaryShape2D_floor")
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1941949726]
+position = Vector2(1930, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=1406308128]
+shape = SubResource("SegmentShape2D_wall_r")

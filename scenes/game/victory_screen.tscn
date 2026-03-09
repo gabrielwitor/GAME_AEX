@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://cogx7mmcu3m58"]
+
+[ext_resource type="Script" uid="uid://4bvr7a38ixxm" path="res://scripts/game/victory_screen.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://n5nu6w5iweqy" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/panel_brown.svg" id="2_panel"]
+[ext_resource type="Texture2D" uid="uid://csnx52mufspos" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="3_btn_b"]
+[ext_resource type="Texture2D" uid="uid://c754y2iwbcl17" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="4_btn_r"]
+[ext_resource type="FontFile" uid="uid://bmyj6vwsdehux" path="res://assets/fonts/Kenney Future.ttf" id="5_font"]
+
+[node name="VictoryScreen" type="CanvasLayer" unique_id=1370958316]
+layer = 10
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="." unique_id=289669233]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1293646735]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer" unique_id=1250997022]
+custom_minimum_size = Vector2(500, 650)
+layout_mode = 2
+texture = ExtResource("2_panel")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/NinePatchRect" unique_id=1373393365]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -280.0
+offset_right = 200.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TargetImage" type="TextureRect" parent="CenterContainer/NinePatchRect/VBoxContainer" unique_id=1720500477]
+custom_minimum_size = Vector2(250, 250)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonsVBox" type="VBoxContainer" parent="CenterContainer/NinePatchRect/VBoxContainer" unique_id=1039837789]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BtnNextLevel" type="TextureButton" parent="CenterContainer/NinePatchRect/VBoxContainer/ButtonsVBox" unique_id=1974688318]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("3_btn_b")
+texture_pressed = ExtResource("3_btn_b")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer/ButtonsVBox/BtnNextLevel" unique_id=1294969799]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("5_font")
+theme_override_font_sizes/font_size = 32
+text = "PRÓXIMO NÍVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnMenu" type="TextureButton" parent="CenterContainer/NinePatchRect/VBoxContainer/ButtonsVBox" unique_id=220459109]
+custom_minimum_size = Vector2(400, 90)
+layout_mode = 2
+texture_normal = ExtResource("4_btn_r")
+texture_pressed = ExtResource("4_btn_r")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CenterContainer/NinePatchRect/VBoxContainer/ButtonsVBox/BtnMenu" unique_id=116318006]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.3, 0.1, 0.1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("5_font")
+theme_override_font_sizes/font_size = 32
+text = "MENU INICIAL"
+horizontal_alignment = 1
+vertical_alignment = 1

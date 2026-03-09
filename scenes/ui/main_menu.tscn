@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://dsj7oci0scce8"]
 
-[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_ab3cd"]
-[ext_resource type="Texture2D" path="res://assets/graphics/background.jpg" id="2_bg"]
-[ext_resource type="FontFile" path="res://assets/fonts/Kenney Future.ttf" id="3_font"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_grey.svg" id="5_p"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="6_qn"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="7_qp"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/banner_classic_curtain.svg" id="8_banner"]
+[ext_resource type="Script" uid="uid://b6amsdh52hdvd" path="res://scripts/ui/main_menu.gd" id="1_ab3cd"]
+[ext_resource type="Texture2D" uid="uid://cnhnp6lgo208p" path="res://assets/graphics/background.jpg" id="2_bg"]
+[ext_resource type="FontFile" uid="uid://bmyj6vwsdehux" path="res://assets/fonts/Kenney Future.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://csnx52mufspos" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
+[ext_resource type="Texture2D" uid="uid://c754y2iwbcl17" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="7_qp"]
+[ext_resource type="Texture2D" uid="uid://bpgg4ejbt5kja" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/banner_classic_curtain.svg" id="8_banner"]
+[ext_resource type="PackedScene" uid="uid://daddy2ms5chgx" path="res://scenes/ui/menu_monster.tscn" id="9_monster"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=2064358157]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ab3cd")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=451149806]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +28,7 @@ texture = ExtResource("2_bg")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Title" type="TextureRect" parent="."]
+[node name="Title" type="TextureRect" parent="." unique_id=1242025632]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -44,7 +43,7 @@ texture = ExtResource("8_banner")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Title"]
+[node name="Label" type="Label" parent="Title" unique_id=1090527777]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -66,7 +65,7 @@ text = "O Monstrinho Faminto"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1769638251]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,7 +80,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="BtnPlay" type="TextureButton" parent="VBoxContainer"]
+[node name="BtnPlay" type="TextureButton" parent="VBoxContainer" unique_id=334660816]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("4_n")
@@ -89,7 +88,7 @@ texture_pressed = ExtResource("4_n")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/BtnPlay"]
+[node name="Label" type="Label" parent="VBoxContainer/BtnPlay" unique_id=1611919006]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,15 +105,15 @@ text = "JOGAR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BtnQuit" type="TextureButton" parent="VBoxContainer"]
+[node name="BtnQuit" type="TextureButton" parent="VBoxContainer" unique_id=2068946521]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-texture_normal = ExtResource("6_qn")
+texture_normal = ExtResource("7_qp")
 texture_pressed = ExtResource("7_qp")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="VBoxContainer/BtnQuit"]
+[node name="Label" type="Label" parent="VBoxContainer/BtnQuit" unique_id=1445241812]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,3 +129,6 @@ theme_override_font_sizes/font_size = 48
 text = "SAIR"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MenuMonster" parent="." unique_id=1146452527 instance=ExtResource("9_monster")]
+position = Vector2(-11, -135)

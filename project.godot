@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 BgmController="*res://scripts/autoload/bgm_controller.gd"
 GlobalMenu="*res://scenes/autoload/global_menu.tscn"
+WordData="*res://scripts/autoload/word_data.gd"
 
 [display]
 

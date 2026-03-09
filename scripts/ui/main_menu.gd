@@ -66,9 +66,7 @@ func _on_hover_exit(btn: TextureButton) -> void:
 
 func _on_btn_play_pressed() -> void:
 	_play_sfx(sfx_click)
-	print("Carregando cena de gameplay...")
-	# Posteriormente, habilitaremos a troca de cena.
-	# get_tree().change_scene_to_file("res://scenes/game/level_base.tscn")
+	get_tree().change_scene_to_file("res://scenes/game/level_base.tscn")
 
 func _on_btn_quit_pressed() -> void:
 	_play_sfx(sfx_click)

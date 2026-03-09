@@ -5,8 +5,8 @@ var audio_player: AudioStreamPlayer
 func _ready() -> void:
 	# Criar dinamicamente o reprodutor de música de fundo
 	audio_player = AudioStreamPlayer.new()
-	audio_player.bus = "Master" # Futuramente, criaremos um bus pra "Music" separado
-	audio_player.process_mode = Node.PROCESS_MODE_ALWAYS # Nunca para, mesmo com o jogo em pause
+	audio_player.bus = "Music"
+	audio_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(audio_player)
 
 func play_music(stream: AudioStream, loop: bool = true) -> void:
