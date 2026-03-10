@@ -1,18 +1,19 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dgininslyo8kw"]
 
-[ext_resource type="Script" path="res://scripts/autoload/global_menu.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/panel_brown.svg" id="2_panel"]
-[ext_resource type="FontFile" path="res://assets/fonts/Kenney Future.ttf" id="3_font"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="8_n"]
-[ext_resource type="Texture2D" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/round_brown.svg" id="10_grabber"]
+[ext_resource type="Script" uid="uid://br3xxlwiy22l1" path="res://scripts/autoload/global_menu.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cbxnrt2ycj5bg" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/panel_brown.svg" id="2_panel"]
+[ext_resource type="FontFile" uid="uid://chtivi0wgcgqq" path="res://assets/fonts/Kenney Future.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://bocblwm28gid4" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/checkbox_beige_empty.svg" id="4_j6prn"]
+[ext_resource type="Texture2D" uid="uid://biotl8s4oylps" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
+[ext_resource type="Texture2D" uid="uid://bh24jvovnbfc2" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/checkbox_beige_checked.svg" id="5_thlli"]
+[ext_resource type="Texture2D" uid="uid://cq1km1vdsiq6y" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="8_n"]
 
-[node name="GlobalMenu" type="CanvasLayer"]
+[node name="GlobalMenu" type="CanvasLayer" unique_id=1941083950]
 process_mode = 3
 layer = 128
 script = ExtResource("1_script")
 
-[node name="MenuPanel" type="Control" parent="."]
+[node name="MenuPanel" type="Control" parent="." unique_id=362921779]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MenuPanel"]
+[node name="ColorRect" type="ColorRect" parent="MenuPanel" unique_id=2133810523]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +30,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="MenuPanel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MenuPanel" unique_id=293324545]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,9 +38,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -390.0
+offset_top = -426.0
 offset_right = 300.0
-offset_bottom = 390.0
+offset_bottom = 426.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_panel")
@@ -48,7 +49,7 @@ patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="Title" type="Label" parent="MenuPanel/NinePatchRect"]
+[node name="Title" type="Label" parent="MenuPanel/NinePatchRect" unique_id=983401936]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -61,22 +62,22 @@ theme_override_font_sizes/font_size = 42
 text = "OPCOES"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/NinePatchRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/NinePatchRect" unique_id=2795208]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -240.0
-offset_right = 150.0
-offset_bottom = 265.0
+offset_left = -155.0
+offset_top = -314.5
+offset_right = 155.0
+offset_bottom = 339.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="LabelMusic" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer"]
+[node name="LabelMusic" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=2040358360]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_fonts/font = ExtResource("3_font")
@@ -84,15 +85,15 @@ theme_override_font_sizes/font_size = 28
 text = "MÚSICA"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer"]
+[node name="MusicSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=1562491619]
 layout_mode = 2
-theme_override_icons/grabber = ExtResource("10_grabber")
-theme_override_icons/grabber_highlight = ExtResource("10_grabber")
+theme_override_icons/grabber = ExtResource("4_j6prn")
+theme_override_icons/grabber_highlight = ExtResource("5_thlli")
 max_value = 1.5
 step = 0.05
 value = 1.0
 
-[node name="LabelVoice" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer"]
+[node name="LabelVoice" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=983515478]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_fonts/font = ExtResource("3_font")
@@ -100,19 +101,19 @@ theme_override_font_sizes/font_size = 28
 text = "SÍLABAS & VOZES"
 horizontal_alignment = 1
 
-[node name="VoiceSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer"]
+[node name="VoiceSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=533615400]
 layout_mode = 2
-theme_override_icons/grabber = ExtResource("10_grabber")
-theme_override_icons/grabber_highlight = ExtResource("10_grabber")
+theme_override_icons/grabber = ExtResource("4_j6prn")
+theme_override_icons/grabber_highlight = ExtResource("5_thlli")
 max_value = 1.5
 step = 0.05
 value = 1.0
 
-[node name="Spacer" type="Control" parent="MenuPanel/NinePatchRect/VBoxContainer"]
+[node name="Spacer" type="Control" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=761100975]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="ResumeBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer"]
+[node name="ResumeBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=401867998]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 texture_normal = ExtResource("4_n")
@@ -120,24 +121,27 @@ texture_pressed = ExtResource("4_n")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/ResumeBtn"]
+[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/ResumeBtn" unique_id=835984183]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -15.0
+offset_left = 1.0
+offset_top = 10.5
+offset_right = 1.0
+offset_bottom = -4.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 28
 text = "VOLTAR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MainMenuBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer"]
+[node name="MainMenuBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=297451153]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 texture_normal = ExtResource("4_n")
@@ -145,24 +149,27 @@ texture_pressed = ExtResource("4_n")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/MainMenuBtn"]
+[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/MainMenuBtn" unique_id=954341423]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -15.0
+offset_left = 1.0
+offset_top = 6.5
+offset_right = 1.0
+offset_bottom = -8.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 28
 text = "MENU INICIAL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer"]
+[node name="QuitBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=335275748]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 texture_normal = ExtResource("8_n")
@@ -170,12 +177,13 @@ texture_pressed = ExtResource("8_n")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/QuitBtn"]
+[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/QuitBtn" unique_id=189762460]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -15.0
+offset_top = 5.5
+offset_bottom = -9.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
