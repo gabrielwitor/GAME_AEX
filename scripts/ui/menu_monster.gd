@@ -167,12 +167,6 @@ func _on_body_entered(body: Node) -> void:
 	if body == grabbed_body:
 		grabbed_body = null
 
-	var syllable: String = body.get_meta("syllable")
-	var syl_path := "res://assets/audio/voice/syllables/" + syllable.to_lower() + ".mp3"
-	if ResourceLoader.exists(syl_path):
-		audio_player.stream = load(syl_path)
-		audio_player.play()
-
 	monster_sprite.texture = texture_happy
 	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(monster_sprite, "scale", MONSTER_SCALE * 1.25, 0.12)
