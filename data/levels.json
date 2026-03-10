@@ -1,122 +1,122 @@
 [
   {
-    "level": 1,
-    "word": "BOLA",
-    "syllables": ["BO", "LA"],
-    "distractors": ["PO", "MA"],
-    "image_path": "res://assets/graphics/objects/bola.png",
-    "word_audio": "res://assets/audio/voice/words/bola.mp3"
+	"level": 1,
+	"word": "BOLA",
+	"syllables": ["BO", "LA"],
+	"distractors": ["PO", "MA"],
+	"image_path": "res://assets/graphics/objects/bola.png",
+	"word_audio": "res://assets/audio/voice/words/bola.mp3"
   },
   {
-    "level": 2,
-    "word": "GATO",
-    "syllables": ["GA", "TO"],
-    "distractors": ["CA", "DO"],
-    "image_path": "res://assets/graphics/objects/gato.png",
-    "word_audio": "res://assets/audio/voice/words/gato.mp3"
+	"level": 2,
+	"word": "GATO",
+	"syllables": ["GA", "TO"],
+	"distractors": ["CA", "DO"],
+	"image_path": "res://assets/graphics/objects/gato.png",
+	"word_audio": "res://assets/audio/voice/words/gato.mp3"
   },
   {
-    "level": 3,
-    "word": "SAPO",
-    "syllables": ["SA", "PO"],
-    "distractors": ["ZA", "BO"],
-    "image_path": "res://assets/graphics/objects/sapo.png",
-    "word_audio": "res://assets/audio/voice/words/sapo.mp3"
+	"level": 3,
+	"word": "SAPO",
+	"syllables": ["SA", "PO"],
+	"distractors": ["ZA", "BO"],
+	"image_path": "res://assets/graphics/objects/sapo.png",
+	"word_audio": "res://assets/audio/voice/words/sapo.mp3"
   },
   {
-    "level": 4,
-    "word": "MALA",
-    "syllables": ["MA", "LA"],
-    "distractors": ["NA", "RA"],
-    "image_path": "res://assets/graphics/objects/mala.png",
-    "word_audio": "res://assets/audio/voice/words/mala.mp3"
+	"level": 4,
+	"word": "MALA",
+	"syllables": ["MA", "LA"],
+	"distractors": ["NA", "RA"],
+	"image_path": "res://assets/graphics/objects/mala.png",
+	"word_audio": "res://assets/audio/voice/words/mala.mp3"
   },
   {
-    "level": 5,
-    "word": "SUCO",
-    "syllables": ["SU", "CO"],
-    "distractors": ["ZU", "GO"],
-    "image_path": "res://assets/graphics/objects/suco.png",
-    "word_audio": "res://assets/audio/voice/words/suco.mp3"
+	"level": 5,
+	"word": "SUCO",
+	"syllables": ["SU", "CO"],
+	"distractors": ["ZU", "GO"],
+	"image_path": "res://assets/graphics/objects/suco.png",
+	"word_audio": "res://assets/audio/voice/words/suco.mp3"
   },
   {
-    "level": 6,
-    "word": "MACACO",
-    "syllables": ["MA", "CA", "CO"],
-    "distractors": ["GA", "GO"],
-    "image_path": "res://assets/graphics/objects/macaco.png",
-    "word_audio": "res://assets/audio/voice/words/macaco.mp3"
+	"level": 6,
+	"word": "MACACO",
+	"syllables": ["MA", "CA", "CO"],
+	"distractors": ["GA", "GO"],
+	"image_path": "res://assets/graphics/objects/macaco.png",
+	"word_audio": "res://assets/audio/voice/words/macaco.mp3"
   },
   {
-    "level": 7,
-    "word": "PIPOCA",
-    "syllables": ["PI", "PO", "CA"],
-    "distractors": ["BI", "BO", "GA"],
-    "image_path": "res://assets/graphics/objects/pipoca.png",
-    "word_audio": "res://assets/audio/voice/words/pipoca.mp3"
+	"level": 7,
+	"word": "PIPOCA",
+	"syllables": ["PI", "PO", "CA"],
+	"distractors": ["BI", "BO", "GA"],
+	"image_path": "res://assets/graphics/objects/pipoca.png",
+	"word_audio": "res://assets/audio/voice/words/pipoca.mp3"
   },
   {
-    "level": 8,
-    "word": "BANANA",
-    "syllables": ["BA", "NA", "NA"],
-    "distractors": ["PA", "MA"],
-    "image_path": "res://assets/graphics/objects/banana.png",
-    "word_audio": "res://assets/audio/voice/words/banana.mp3"
+	"level": 8,
+	"word": "BANANA",
+	"syllables": ["BA", "NA", "NA"],
+	"distractors": ["PA", "MA"],
+	"image_path": "res://assets/graphics/objects/banana.png",
+	"word_audio": "res://assets/audio/voice/words/banana.mp3"
   },
   {
-    "level": 9,
-    "word": "TOMATE",
-    "syllables": ["TO", "MA", "TE"],
-    "distractors": ["DO", "DE"],
-    "image_path": "res://assets/graphics/objects/tomate.png",
-    "word_audio": "res://assets/audio/voice/words/tomate.mp3"
+	"level": 9,
+	"word": "TOMATE",
+	"syllables": ["TO", "MA", "TE"],
+	"distractors": ["DO", "DE"],
+	"image_path": "res://assets/graphics/objects/tomate.png",
+	"word_audio": "res://assets/audio/voice/words/tomate.mp3"
   },
   {
-    "level": 10,
-    "word": "CAVALO",
-    "syllables": ["CA", "VA", "LO"],
-    "distractors": ["GA", "FA"],
-    "image_path": "res://assets/graphics/objects/cavalo.png",
-    "word_audio": "res://assets/audio/voice/words/cavalo.mp3"
+	"level": 10,
+	"word": "CAVALO",
+	"syllables": ["CA", "VA", "LO"],
+	"distractors": ["GA", "FA"],
+	"image_path": "res://assets/graphics/objects/cavalo.png",
+	"word_audio": "res://assets/audio/voice/words/cavalo.mp3"
   },
   {
-    "level": 11,
-    "word": "GIRAFA",
-    "syllables": ["GI", "RA", "FA"],
-    "distractors": ["JI", "VA"],
-    "image_path": "res://assets/graphics/objects/girafa.png",
-    "word_audio": "res://assets/audio/voice/words/girafa.mp3"
+	"level": 11,
+	"word": "GIRAFA",
+	"syllables": ["GI", "RA", "FA"],
+	"distractors": ["JI", "VA"],
+	"image_path": "res://assets/graphics/objects/girafa.png",
+	"word_audio": "res://assets/audio/voice/words/girafa.mp3"
   },
   {
-    "level": 12,
-    "word": "PALHAÇO",
-    "syllables": ["PA", "LHA", "ÇO"],
-    "distractors": ["LI", "SO"],
-    "image_path": "res://assets/graphics/objects/palhaco.png",
-    "word_audio": "res://assets/audio/voice/words/palhaco.mp3"
+	"level": 12,
+	"word": "PALHAÇO",
+	"syllables": ["PA", "LHA", "ÇO"],
+	"distractors": ["LI", "SO"],
+	"image_path": "res://assets/graphics/objects/palhaco.png",
+	"word_audio": "res://assets/audio/voice/words/palhaco.mp3"
   },
   {
-    "level": 13,
-    "word": "TESOURA",
-    "syllables": ["TE", "SOU", "RA"],
-    "distractors": ["ZOU", "DE"],
-    "image_path": "res://assets/graphics/objects/tesoura.png",
-    "word_audio": "res://assets/audio/voice/words/tesoura.mp3"
+	"level": 13,
+	"word": "TESOURA",
+	"syllables": ["TE", "SOU", "RA"],
+	"distractors": ["ZOU", "DE"],
+	"image_path": "res://assets/graphics/objects/tesoura.png",
+	"word_audio": "res://assets/audio/voice/words/tesoura.mp3"
   },
   {
-    "level": 14,
-    "word": "FORMIGA",
-    "syllables": ["FOR", "MI", "GA"],
-    "distractors": ["FRO", "CA"],
-    "image_path": "res://assets/graphics/objects/formiga.png",
-    "word_audio": "res://assets/audio/voice/words/formiga.mp3"
+	"level": 14,
+	"word": "FORMIGA",
+	"syllables": ["FOR", "MI", "GA"],
+	"distractors": ["FRO", "CA"],
+	"image_path": "res://assets/graphics/objects/formiga.png",
+	"word_audio": "res://assets/audio/voice/words/formiga.mp3"
   },
   {
-    "level": 15,
-    "word": "CACHORRO",
-    "syllables": ["CA", "CHO", "RRO"],
-    "distractors": ["XO", "RO"],
-    "image_path": "res://assets/graphics/objects/cachorro.png",
-    "word_audio": "res://assets/audio/voice/words/cachorro.mp3"
+	"level": 15,
+	"word": "CACHORRO",
+	"syllables": ["CA", "CHO", "RRO"],
+	"distractors": ["XO", "RO"],
+	"image_path": "res://assets/graphics/objects/cachorro.png",
+	"word_audio": "res://assets/audio/voice/words/cachorro.mp3"
   }
 ]
