@@ -98,3 +98,37 @@ func _on_hover_exit(btn: TextureButton) -> void:
 func _play_sfx(stream: AudioStream) -> void:
 	audio_player.stream = stream
 	audio_player.play()
+
+
+func show_victory_texture(tex: Texture2D, is_final: bool = false) -> void:
+	if tex:
+		target_image.texture = tex
+	# chama o restante da lógica existente de show_victory sem o load
+	congrat_label.visible = is_final
+	if is_final:
+		btn_next_label.text = "JOGAR NOVAMENTE"
+		if btn_next.pressed.is_connected(_on_btn_next_pressed):
+			btn_next.pressed.disconnect(_on_btn_next_pressed)
+		if not btn_next.pressed.is_connected(_on_btn_restart_pressed):
+			btn_next.pressed.connect(_on_btn_restart_pressed)
+	else:
+		btn_next_label.text = "PROXIMO NIVEL"
+		if btn_next.pressed.is_connected(_on_btn_restart_pressed):
+			btn_next.pressed.disconnect(_on_btn_restart_pressed)
+		if not btn_next.pressed.is_connected(_on_btn_next_pressed):
+			btn_next.pressed.connect(_on_btn_next_pressed)
+
+	background.color = Color(0, 0, 0, 0)
+	panel.modulate = Color(1, 1, 1, 0)
+	panel.scale = Vector2(0.5, 0.5)
+	show()
+
+	var bg_tween = create_tween()
+	bg_tween.tween_property(background, "color", Color(0, 0, 0, 0.85), 0.8)
+
+	await get_tree().process_frame
+	panel.pivot_offset = panel.size / 2
+
+	var panel_tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	panel_tween.tween_property(panel, "scale", Vector2.ONE, 0.55)
+	panel_tween.parallel().tween_property(panel, "modulate:a", 1.0, 0.3)
