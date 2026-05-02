@@ -9,12 +9,10 @@ const SPAWN_X_MAX := 1870.0
 const MAX_BOXES := 7
 const SPAWN_INTERVAL := 2.0
 const BOX_LIFESPAN := 12.0
-const BOX_MODULATE := Color(0.6, 0.55, 0.5)
 
 var texture_idle  = preload("res://assets/graphics/characters/monster_idle.png")
 var texture_happy = preload("res://assets/graphics/characters/monster_happy.png")
-var box_tex       = preload("res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg")
-var font_future   = preload("res://assets/fonts/Kenney Future.ttf")
+var menu_block_scene = preload("res://scenes/ui/menu_block.tscn")
 
 var audio_player: AudioStreamPlayer
 var syllables := ["BO", "LA", "GA", "TO", "SA", "PI", "BA", "NA", "MA", "CA", "PA", "CO"]
@@ -97,54 +95,16 @@ func _release_body() -> void:
 func _spawn_box() -> void:
 	var syllable: String = syllables[randi() % syllables.size()]
 
-	var box := RigidBody2D.new()
-	var mat := PhysicsMaterial.new()
-	mat.bounce = 0.45
-	mat.friction = 0.5
-	box.physics_material_override = mat
-	box.gravity_scale = 0.55
-	box.linear_damp = 0.05
+	var box: RigidBody2D = menu_block_scene.instantiate()
 	box.position = Vector2(randf_range(SPAWN_X_MIN, SPAWN_X_MAX), -90.0)
 	box.linear_velocity = Vector2(randf_range(-40.0, 40.0), 0.0)
 	box.angular_velocity = randf_range(-1.2, 1.2)
 	box.set_meta("syllable", syllable)
-
-	# Fundo visual
-	var nine := NinePatchRect.new()
-	nine.texture = box_tex
-	nine.patch_margin_left = 32
-	nine.patch_margin_top = 32
-	nine.patch_margin_right = 32
-	nine.patch_margin_bottom = 32
-	nine.size = Vector2(84, 84)
-	nine.position = Vector2(-42, -42)
-	nine.modulate = BOX_MODULATE
-	nine.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	box.add_child(nine)
-
-	# Label
-	var lbl := Label.new()
-	lbl.text = syllable
-	lbl.size = Vector2(84, 84)
-	lbl.position = Vector2(-42, -48)
-	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	lbl.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	lbl.add_theme_font_override("font", font_future)
-	lbl.add_theme_font_size_override("font_size", 32)
-	lbl.add_theme_color_override("font_color", Color(1, 1, 1))
-	lbl.add_theme_color_override("font_outline_color", Color(0.2, 0.1, 0.05))
-	lbl.add_theme_constant_override("outline_size", 7)
-	lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	box.add_child(lbl)
-
-	# Colisão
-	var col := CollisionShape2D.new()
-	var shape := RectangleShape2D.new()
-	shape.size = Vector2(84, 84)
-	col.shape = shape
-	box.add_child(col)
+	box.get_node("Label").text = syllable
 
 	# Timer de vida com fade
+	var nine := box.get_node("Background")
+	var lbl := box.get_node("Label")
 	get_tree().create_timer(BOX_LIFESPAN).timeout.connect(func():
 		if is_instance_valid(box) and box != grabbed_body:
 			var fade = create_tween()
