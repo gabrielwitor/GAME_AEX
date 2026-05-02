@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Monstrinho Faminto"
+config/version="1.0"
 run/main_scene="res://scenes/ui/splash_screen.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cq1xo827hrh0"
 
 [autoload]
 
