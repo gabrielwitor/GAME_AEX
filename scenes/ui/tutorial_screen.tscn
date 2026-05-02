@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bavwi61ch12xm" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/minimap_arrow_b.svg" id="5_arrow"]
 [ext_resource type="Texture2D" uid="uid://biotl8s4oylps" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="6_btn_brown"]
 [ext_resource type="Texture2D" uid="uid://cq1km1vdsiq6y" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="7_btn_red"]
-[ext_resource type="FontFile" uid="uid://chtivi0wgcgqq" path="res://assets/fonts/Kenney Future.ttf" id="8_font"]
+[ext_resource type="FontFile" uid="uid://chtivi0wgcgqq" path="res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf" id="8_font"]
 [ext_resource type="Texture2D" uid="uid://cbxnrt2ycj5bg" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/panel_brown.svg" id="9_panel"]
 
 [node name="TutorialScreen" type="CanvasLayer" unique_id=896797418]
@@ -115,7 +115,7 @@ theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("8_font")
 theme_override_font_sizes/font_size = 22
-text = "Tutorial concluído!"
+text = "Tutorial concluÃ­do!"
 horizontal_alignment = 1
 
 [node name="BtnReplay" type="TextureButton" parent="EndPanel/NinePatchRect/VBoxContainer" unique_id=1763635568]

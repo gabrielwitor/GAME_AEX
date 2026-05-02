@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbxnrt2ycj5bg" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/panel_brown.svg" id="2_panel"]
 [ext_resource type="Texture2D" uid="uid://biotl8s4oylps" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="3_btn_b"]
 [ext_resource type="Texture2D" uid="uid://cq1km1vdsiq6y" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="4_btn_r"]
-[ext_resource type="FontFile" uid="uid://chtivi0wgcgqq" path="res://assets/fonts/Kenney Future.ttf" id="5_font"]
+[ext_resource type="FontFile" uid="uid://chtivi0wgcgqq" path="res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf" id="5_font"]
 
 [node name="VictoryScreen" type="CanvasLayer" unique_id=1370958316]
 layer = 10
@@ -93,7 +93,7 @@ theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("5_font")
 theme_override_font_sizes/font_size = 32
-text = "PRÓXIMO NÍVEL"
+text = "PRÃ“XIMO NÃVEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
