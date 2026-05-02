@@ -4,6 +4,7 @@ extends Control
 var _is_transitioning: bool = false
 
 func _ready() -> void:
+	GlobalMenu.hide()
 	video_player.finished.connect(_on_video_finished)
 
 func _input(event: InputEvent) -> void:

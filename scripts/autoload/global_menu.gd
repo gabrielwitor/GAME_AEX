@@ -24,7 +24,7 @@ func _ready() -> void:
 		AudioServer.set_bus_volume_db(music_idx, linear_to_db(0.05))
 
 	# Define a largura de abertura baseada no tamanho configurado no editor
-	panel_width = menu_panel.offset_right
+	panel_width = menu_panel.size.x
 
 	# Configure panel initial state (closed)
 	side_panel.offset_left = 0
@@ -92,7 +92,7 @@ func _toggle_menu() -> void:
 		
 	tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_parallel(true)
 	
-	var target_offset = -panel_width if is_menu_open else 0.0
+	var target_offset = panel_width if is_menu_open else 0.0
 	tween.tween_property(side_panel, "offset_left", target_offset, 0.4)
 	tween.tween_property(side_panel, "offset_right", target_offset, 0.4)
 

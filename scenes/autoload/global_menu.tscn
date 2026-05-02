@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://br3xxlwiy22l1" path="res://scripts/autoload/global_menu.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://cbxnrt2ycj5bg" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/panel_brown.svg" id="2_panel"]
-[ext_resource type="FontFile" uid="uid://chtivi0wgcgqq" path="res://assets/fonts/Fredoka-VariableFont_wdth,wght.ttf" id="3_font"]
+[ext_resource type="FontFile" uid="uid://chtivi0wgcgqq" path="res://assets/fonts/Kenney Future.ttf" id="3_font"]
 [ext_resource type="Texture2D" uid="uid://bocblwm28gid4" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/checkbox_beige_empty.svg" id="4_j6prn"]
 [ext_resource type="Texture2D" uid="uid://biotl8s4oylps" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
 [ext_resource type="Texture2D" uid="uid://bh24jvovnbfc2" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/checkbox_beige_checked.svg" id="5_thlli"]
@@ -16,22 +16,16 @@ script = ExtResource("1_script")
 
 [node name="SidePanel" type="Control" parent="." unique_id=777263715]
 layout_mode = 3
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 0
 grow_vertical = 2
 
 [node name="MenuPanel" type="NinePatchRect" parent="SidePanel" unique_id=1173229559]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_right = 360.0
-grow_horizontal = 0
+offset_left = -360.0
+offset_right = -3.0
 grow_vertical = 2
 texture = ExtResource("2_panel")
 region_rect = Rect2(0, 0, 640.5365, 640)
@@ -59,7 +53,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 32
-text = "OPÃ‡Ã•ES"
+text = "Opções"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SidePanel/MenuPanel/VBoxContainer" unique_id=458206592]
@@ -77,7 +71,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 18
-text = "MÃšSICA"
+text = "Música"
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="VSlider" parent="SidePanel/MenuPanel/VBoxContainer/HBoxContainer/MusicBox" unique_id=236827228]
@@ -165,8 +159,8 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -70.0
 offset_top = -35.0
+offset_right = 70.0
 offset_bottom = 35.0
 grow_vertical = 2
 texture_normal = ExtResource("4_n")

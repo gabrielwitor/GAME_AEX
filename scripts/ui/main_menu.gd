@@ -15,6 +15,7 @@ var sfx_click = preload("res://assets/audio/sfx/click_001.ogg")
 var audio_player = AudioStreamPlayer.new()
 
 func _ready() -> void:
+	GlobalMenu.show()
 	# Inicia a música de fundo usando o novo AutoLoad
 	BgmController.play_music(preload("res://assets/audio/music/sergios_magic_dustbin.mp3"))
 	
