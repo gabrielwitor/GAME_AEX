@@ -3,6 +3,7 @@ extends Control
 @onready var btn_play: TextureButton = $VBoxContainer/BtnPlay
 @onready var btn_quit: TextureButton = $VBoxContainer/BtnQuit
 @onready var title: Control = $Title
+@onready var logo_uenp: TextureRect = $LogoUENP
 
 # Variáveis para animação de Tween
 var _hover_scale := Vector2(1.1, 1.1)
@@ -50,6 +51,11 @@ func _animate_title() -> void:
 	tween_scale.tween_property(title, "scale", Vector2(1.05, 1.05), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween_scale.tween_property(title, "scale", Vector2(1.0, 1.0), 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
+	# Animação de flutuação para o logo da UENP
+	var tween_logo = create_tween().set_loops()
+	tween_logo.tween_property(logo_uenp, "position:y", logo_uenp.position.y - 10, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween_logo.tween_property(logo_uenp, "position:y", logo_uenp.position.y, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
 func _on_hover_enter(btn: TextureButton) -> void:
 	# Para não conflitar, matamos tweens que já estejam rodando no botão
 	var tween = create_tween()
@@ -66,7 +72,10 @@ func _on_hover_exit(btn: TextureButton) -> void:
 
 func _on_btn_play_pressed() -> void:
 	_play_sfx(sfx_click)
-	get_tree().change_scene_to_file("res://scenes/game/level_base.tscn")
+	if not WordData.tutorial_seen_this_session:
+		get_tree().change_scene_to_file("res://scenes/ui/tutorial_screen.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/game/level_base.tscn")
 
 func _on_btn_quit_pressed() -> void:
 	_play_sfx(sfx_click)

@@ -42,6 +42,9 @@ var current_level_data: Dictionary = {}
 var word_syllables: Array[String] = []
 var current_syllable_idx: int = 0
 
+## Quando true, o input do jogador fica desabilitado (usado pelo tutorial).
+var tutorial_mode: bool = false
+
 func _ready() -> void:
 	audio_player_pop = AudioStreamPlayer.new()
 	audio_player_pop.stream = sfx_pop
@@ -185,12 +188,16 @@ func _update_word_progress() -> void:
 			lbl.text = ""
 
 func _on_syllable_grabbed(_block: SyllableBlock) -> void:
+	if tutorial_mode:
+		return
 	monster_sprite.texture = texture_open
 	audio_player_pop.play()
 	var tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	tween.tween_property(monster_sprite, "scale", Vector2(1.05, 1.05), 0.15)
 
 func _on_syllable_dropped(block: SyllableBlock) -> void:
+	if tutorial_mode:
+		return
 	monster_sprite.texture = texture_idle
 	var tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(monster_sprite, "scale", Vector2(1.0, 1.0), 0.15)
@@ -255,3 +262,77 @@ func _on_syllable_dropped(block: SyllableBlock) -> void:
 	else:
 		# Bloco solto fora da boca: volta à posição inicial
 		block.return_to_home()
+
+# ---------------------------------------------------------------------------
+# API pública para o tutorial
+# ---------------------------------------------------------------------------
+
+## Ativa o modo tutorial: desabilita input dos blocos e esconde a tela de vitória.
+func enter_tutorial_mode() -> void:
+	tutorial_mode = true
+	# Esconde a tela de vitória — não deve aparecer durante o tutorial
+	if is_instance_valid(victory_screen):
+		victory_screen.hide()
+	# Desabilita input em todos os blocos já criados pelo _ready()
+	for block in blocks_container.get_children():
+		block.set_process_input(false)
+		# Area2D: desabilita o sinal input_event também
+		if block is Area2D:
+			block.input_pickable = false
+
+## Retorna a posição de tela do balão de pensamento (para a seta do tutorial).
+func get_thought_balloon_screen_pos() -> Vector2:
+	return thought_balloon.get_global_transform_with_canvas().origin
+
+## Retorna a posição global do centro da boca do monstro.
+func get_mouth_global_position() -> Vector2:
+	return monster_mouth.global_position
+
+## Retorna todos os SyllableBlocks filhos do container de blocos.
+func get_syllable_blocks() -> Array:
+	return blocks_container.get_children()
+
+## Procura um SyllableBlock pela sílaba exata.
+func find_block_by_syllable(syllable: String) -> SyllableBlock:
+	for child in blocks_container.get_children():
+		if child is SyllableBlock and child.syllable_text == syllable:
+			return child
+	return null
+
+## Processa um drop simulado pelo tutorial (o bloco já está sobre a boca).
+func tutorial_drop_block(block: SyllableBlock) -> void:
+	if current_syllable_idx >= word_syllables.size():
+		return
+
+	var expected := word_syllables[current_syllable_idx]
+
+	# Pronúncia da sílaba
+	var syl_path := "res://assets/audio/voice/syllables/" + block.syllable_text.to_lower() + ".mp3"
+	if ResourceLoader.exists(syl_path):
+		audio_player_syllable.stream = load(syl_path)
+		audio_player_syllable.play()
+
+	if block.syllable_text == expected:
+		monster_sprite.texture = texture_happy
+		audio_player_chew.play()
+		get_tree().create_timer(0.4).timeout.connect(audio_player_gulp.play)
+
+		var bt := create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
+		bt.tween_property(block, "scale", Vector2.ZERO, 0.2)
+		bt.finished.connect(block.queue_free)
+
+		current_syllable_idx += 1
+		_update_word_progress()
+
+		if current_syllable_idx >= word_syllables.size():
+			await get_tree().create_timer(1.2).timeout
+			audio_player_hooray.play()
+			var word_path: String = current_level_data.get("word_audio", "")
+			if ResourceLoader.exists(word_path):
+				await get_tree().create_timer(0.9).timeout
+				audio_player_word.stream = load(word_path)
+				audio_player_word.play()
+
+		await get_tree().create_timer(1.0).timeout
+		if monster_sprite.texture == texture_happy:
+			monster_sprite.texture = texture_idle

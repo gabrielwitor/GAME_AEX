@@ -1,5 +1,10 @@
 extends Node
 
+## Flag de sessão: false ao iniciar o processo, true após ver o tutorial.
+## Não é persistida em disco — o tutorial roda uma vez por abertura do jogo.
+var tutorial_seen_this_session: bool = false
+
+
 # Banco de dados do MVP (Pode ser facilmente adaptado para um arquivo JSON no futuro)
 var levels = [
 	{

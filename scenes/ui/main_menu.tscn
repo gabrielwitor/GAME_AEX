@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cq1km1vdsiq6y" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="7_qp"]
 [ext_resource type="Texture2D" uid="uid://cye8x74vrq4ua" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/banner_classic_curtain.svg" id="8_banner"]
 [ext_resource type="PackedScene" uid="uid://daddy2ms5chgx" path="res://scenes/ui/menu_monster.tscn" id="9_monster"]
+[ext_resource type="Texture2D" uid="uid://k552usrr3inr" path="res://assets/graphics/ui/brasao-uenp.png" id="10_logo"]
 
 [node name="MainMenu" type="Control" unique_id=2064358157]
 layout_mode = 3
@@ -132,3 +133,17 @@ vertical_alignment = 1
 
 [node name="MenuMonster" parent="." unique_id=1146452527 instance=ExtResource("9_monster")]
 position = Vector2(-11, -135)
+
+[node name="LogoUENP" type="TextureRect" parent="." unique_id=1297737917]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1703.0
+offset_top = -1047.0
+offset_right = 1883.0
+offset_bottom = -867.0
+grow_vertical = 0
+texture = ExtResource("10_logo")
+expand_mode = 1
+stretch_mode = 5
