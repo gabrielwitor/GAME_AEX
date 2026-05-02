@@ -7,210 +7,183 @@
 [ext_resource type="Texture2D" uid="uid://biotl8s4oylps" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
 [ext_resource type="Texture2D" uid="uid://bh24jvovnbfc2" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/checkbox_beige_checked.svg" id="5_thlli"]
 [ext_resource type="Texture2D" uid="uid://cq1km1vdsiq6y" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="8_n"]
+[ext_resource type="Texture2D" uid="uid://cg2h7qkh88b5a" path="res://assets/graphics/ui/icon_settings.png" id="9_settings"]
 
-[node name="GlobalMenu" type="CanvasLayer" unique_id=1941083950]
+[node name="GlobalMenu" type="CanvasLayer" unique_id=248877579]
 process_mode = 3
 layer = 128
 script = ExtResource("1_script")
 
-[node name="MenuPanel" type="Control" parent="." unique_id=362921779]
+[node name="SidePanel" type="Control" parent="." unique_id=777263715]
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MenuPanel" unique_id=2133810523]
+[node name="MenuPanel" type="NinePatchRect" parent="SidePanel" unique_id=1173229559]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.6)
-
-[node name="NinePatchRect" type="NinePatchRect" parent="MenuPanel" unique_id=293324545]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -426.0
-offset_right = 300.0
-offset_bottom = 426.0
-grow_horizontal = 2
+offset_left = 3.0
+offset_right = 360.0
+grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("2_panel")
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 32
-patch_margin_bottom = 32
+region_rect = Rect2(0, 0, 640.5365, 640)
+patch_margin_left = 64
+patch_margin_top = 64
+patch_margin_right = 64
+patch_margin_bottom = 64
 
-[node name="Title" type="Label" parent="MenuPanel/NinePatchRect" unique_id=983401936]
+[node name="VBoxContainer" type="VBoxContainer" parent="SidePanel/MenuPanel" unique_id=139562070]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_top = 40.0
-offset_bottom = 90.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
-theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 42
-text = "OPCOES"
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuPanel/NinePatchRect" unique_id=2795208]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -155.0
-offset_top = -314.5
-offset_right = 155.0
-offset_bottom = 339.5
+anchor_bottom = 1.0
+offset_left = 67.0
+offset_top = 94.0
+offset_right = -72.0
+offset_bottom = -50.583252
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+scale = Vector2(1, 0.96)
+theme_override_constants/separation = 40
 
-[node name="LabelMusic" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=2040358360]
+[node name="Title" type="Label" parent="SidePanel/MenuPanel/VBoxContainer" unique_id=1130542856]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
+text = "OPÇÕES"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SidePanel/MenuPanel/VBoxContainer" unique_id=458206592]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="MusicBox" type="VBoxContainer" parent="SidePanel/MenuPanel/VBoxContainer/HBoxContainer" unique_id=1157771322]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelMusic" type="Label" parent="SidePanel/MenuPanel/VBoxContainer/HBoxContainer/MusicBox" unique_id=1014729865]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
 text = "MÚSICA"
 horizontal_alignment = 1
 
-[node name="MusicSliderWrapper" type="Control" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=2115000236]
-custom_minimum_size = Vector2(0, 40)
+[node name="MusicSlider" type="VSlider" parent="SidePanel/MenuPanel/VBoxContainer/HBoxContainer/MusicBox" unique_id=236827228]
 layout_mode = 2
-
-[node name="MusicSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer/MusicSliderWrapper" unique_id=1562491619]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
 theme_override_icons/grabber = ExtResource("4_j6prn")
 theme_override_icons/grabber_highlight = ExtResource("5_thlli")
 max_value = 1.5
 step = 0.05
 value = 1.0
 
-[node name="LabelVoice" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=983515478]
+[node name="VoiceBox" type="VBoxContainer" parent="SidePanel/MenuPanel/VBoxContainer/HBoxContainer" unique_id=2009773046]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LabelVoice" type="Label" parent="SidePanel/MenuPanel/VBoxContainer/HBoxContainer/VoiceBox" unique_id=1123954000]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2, 0.1, 0.05, 1)
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 28
-text = "SÍLABAS & VOZES"
+theme_override_font_sizes/font_size = 18
+text = "VOZES"
 horizontal_alignment = 1
 
-[node name="VoiceSliderWrapper" type="Control" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=1751614175]
-custom_minimum_size = Vector2(0, 40)
+[node name="VoiceSlider" type="VSlider" parent="SidePanel/MenuPanel/VBoxContainer/HBoxContainer/VoiceBox" unique_id=103938846]
 layout_mode = 2
-
-[node name="VoiceSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer/VoiceSliderWrapper" unique_id=533615400]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -100.0
-offset_bottom = 100.0
-grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
 theme_override_icons/grabber = ExtResource("4_j6prn")
 theme_override_icons/grabber_highlight = ExtResource("5_thlli")
 max_value = 1.5
 step = 0.05
 value = 1.0
 
-[node name="Spacer" type="Control" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=761100975]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="ResumeBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=401867998]
-custom_minimum_size = Vector2(0, 80)
+[node name="MainMenuBtn" type="TextureButton" parent="SidePanel/MenuPanel/VBoxContainer" unique_id=854226580]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 texture_normal = ExtResource("4_n")
 texture_pressed = ExtResource("4_n")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/ResumeBtn" unique_id=835984183]
+[node name="Label" type="Label" parent="SidePanel/MenuPanel/VBoxContainer/MainMenuBtn" unique_id=842344792]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 10.5
-offset_right = 1.0
-offset_bottom = -4.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 28
-text = "VOLTAR"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MainMenuBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=297451153]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-texture_normal = ExtResource("4_n")
-texture_pressed = ExtResource("4_n")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/MainMenuBtn" unique_id=954341423]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 6.5
-offset_right = 1.0
-offset_bottom = -8.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.3, 0.15, 0.05, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 20
 text = "MENU INICIAL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitBtn" type="TextureButton" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=335275748]
-custom_minimum_size = Vector2(0, 80)
+[node name="QuitBtn" type="TextureButton" parent="SidePanel/MenuPanel/VBoxContainer" unique_id=1837145284]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 texture_normal = ExtResource("8_n")
 texture_pressed = ExtResource("8_n")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="MenuPanel/NinePatchRect/VBoxContainer/QuitBtn" unique_id=189762460]
+[node name="Label" type="Label" parent="SidePanel/MenuPanel/VBoxContainer/QuitBtn" unique_id=1146390359]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 5.5
-offset_bottom = -9.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.3, 0.1, 0.1, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_font")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 24
 text = "SAIR"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ToggleBtn" type="TextureButton" parent="SidePanel" unique_id=1654135252]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -35.0
+offset_bottom = 35.0
+grow_vertical = 2
+texture_normal = ExtResource("4_n")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Icon" type="TextureRect" parent="SidePanel/ToggleBtn" unique_id=524386561]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_settings")
+expand_mode = 1
+stretch_mode = 5
