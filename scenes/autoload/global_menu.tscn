@@ -85,8 +85,17 @@ theme_override_font_sizes/font_size = 28
 text = "MÚSICA"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=1562491619]
+[node name="MusicSliderWrapper" type="Control" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=2115000236]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer/MusicSliderWrapper" unique_id=1562491619]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_icons/grabber = ExtResource("4_j6prn")
 theme_override_icons/grabber_highlight = ExtResource("5_thlli")
 max_value = 1.5
@@ -101,8 +110,19 @@ theme_override_font_sizes/font_size = 28
 text = "SÍLABAS & VOZES"
 horizontal_alignment = 1
 
-[node name="VoiceSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=533615400]
+[node name="VoiceSliderWrapper" type="Control" parent="MenuPanel/NinePatchRect/VBoxContainer" unique_id=1751614175]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+
+[node name="VoiceSlider" type="HSlider" parent="MenuPanel/NinePatchRect/VBoxContainer/VoiceSliderWrapper" unique_id=533615400]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_icons/grabber = ExtResource("4_j6prn")
 theme_override_icons/grabber_highlight = ExtResource("5_thlli")
 max_value = 1.5

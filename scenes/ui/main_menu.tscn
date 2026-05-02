@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b6amsdh52hdvd" path="res://scripts/ui/main_menu.gd" id="1_ab3cd"]
 [ext_resource type="Texture2D" uid="uid://cnhnp6lgo208p" path="res://assets/graphics/background.jpg" id="2_bg"]
-[ext_resource type="FontFile" uid="uid://bmyj6vwsdehux" path="res://assets/fonts/Kenney Future.ttf" id="3_font"]
-[ext_resource type="Texture2D" uid="uid://csnx52mufspos" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
-[ext_resource type="Texture2D" uid="uid://c754y2iwbcl17" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="7_qp"]
-[ext_resource type="Texture2D" uid="uid://bpgg4ejbt5kja" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/banner_classic_curtain.svg" id="8_banner"]
+[ext_resource type="FontFile" uid="uid://chtivi0wgcgqq" path="res://assets/fonts/Kenney Future.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://biotl8s4oylps" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_brown.svg" id="4_n"]
+[ext_resource type="Texture2D" uid="uid://cq1km1vdsiq6y" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/button_red.svg" id="7_qp"]
+[ext_resource type="Texture2D" uid="uid://cye8x74vrq4ua" path="res://assets/graphics/ui/kenney_ui-pack-adventure/Vector/banner_classic_curtain.svg" id="8_banner"]
 [ext_resource type="PackedScene" uid="uid://daddy2ms5chgx" path="res://scenes/ui/menu_monster.tscn" id="9_monster"]
 
 [node name="MainMenu" type="Control" unique_id=2064358157]

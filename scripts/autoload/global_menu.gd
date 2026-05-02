@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 @onready var menu_panel = $MenuPanel
-@onready var music_slider = $MenuPanel/NinePatchRect/VBoxContainer/MusicSlider
-@onready var voice_slider = $MenuPanel/NinePatchRect/VBoxContainer/VoiceSlider
+@onready var music_slider = $MenuPanel/NinePatchRect/VBoxContainer/MusicSliderWrapper/MusicSlider
+@onready var voice_slider = $MenuPanel/NinePatchRect/VBoxContainer/VoiceSliderWrapper/VoiceSlider
 @onready var resume_btn = $MenuPanel/NinePatchRect/VBoxContainer/ResumeBtn
 @onready var main_menu_btn = $MenuPanel/NinePatchRect/VBoxContainer/MainMenuBtn
 @onready var quit_btn = $MenuPanel/NinePatchRect/VBoxContainer/QuitBtn
@@ -14,6 +14,11 @@ func _ready() -> void:
 	_ensure_bus("Music")
 	_ensure_bus("Voice")
 	
+	# Inicia a música bem baixa (5%)
+	var music_idx = AudioServer.get_bus_index("Music")
+	if music_idx >= 0:
+		AudioServer.set_bus_volume_db(music_idx, linear_to_db(0.05))
+
 	# Hide the menu initially
 	menu_panel.hide()
 	
