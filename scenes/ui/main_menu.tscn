@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://daddy2ms5chgx" path="res://scenes/ui/menu_monster.tscn" id="9_monster"]
 [ext_resource type="Texture2D" uid="uid://k552usrr3inr" path="res://assets/graphics/ui/brasao-uenp.png" id="10_logo"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wb0q5"]
+load_path = "res://.godot/imported/button_red.svg-0da481cab54c1f17d4d757f4ba2de91b.ctex"
+
 [node name="MainMenu" type="Control" unique_id=2064358157]
 layout_mode = 3
 anchors_preset = 15
@@ -110,7 +113,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture_normal = ExtResource("7_qp")
-texture_pressed = ExtResource("7_qp")
+texture_pressed = SubResource("CompressedTexture2D_wb0q5")
 ignore_texture_size = true
 stretch_mode = 0
 
